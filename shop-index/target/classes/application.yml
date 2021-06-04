@@ -1,0 +1,13 @@
+server:
+  port: 8100
+spring:
+  application:
+    name: shop-index
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka
+#开启断路器
+feign:
+  hystrix:
+    enabled: true

@@ -1,0 +1,29 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: shopEureka
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: false
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka
+---
+spring:
+  profiles: eureka-1
+server:
+  port: 8001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka,http://127.0.0.1:8001/eureka,http://127.0.0.1:8002/eureka
+---
+spring:
+  profiles: eureka-2
+server:
+  port: 8002
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka,http://127.0.0.1:8001/eureka,http://127.0.0.1:8002/eureka
